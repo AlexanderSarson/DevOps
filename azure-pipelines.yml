@@ -20,8 +20,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: PublishBuildArtifacts@1
+
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'DevOps'
-    publishLocation: 'Container'
+    targetPath: '$(Pipeline.Workspace)/target/*.war'
+    artifact: 'test.war'
+    publishLocation: 'pipeline'
