@@ -9,7 +9,16 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
+
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'teamgold'
+    scannerMode: 'Other'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -20,6 +29,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'target'
