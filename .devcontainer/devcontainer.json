@@ -3,7 +3,7 @@
 {
 	"name": "k8s workbench gitops",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "crworkbenchprod5lz67p2g.azurecr.io/devcontainers/python:3.11-v0.0.4",
+	"image": "crworkbenchtestyqwmgykq.azurecr.io/coder:enterprise-base-pfa0.0.16",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
